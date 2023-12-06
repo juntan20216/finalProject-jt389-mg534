@@ -4,8 +4,8 @@ Final Project
 Fall 2023
 
 Partner 1: Jun Tan
-Partner 2:
-Date:
+Partner 2: 
+Date: 13th December
 """
 
 # Import math and p3tests.
