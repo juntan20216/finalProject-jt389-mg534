@@ -4,7 +4,7 @@ Final Project
 Fall 2023
 
 Partner 1: Jun Tan
-Partner 2: 
+Partner 2: Max Gorbarty
 Date: 13th December
 """
 
@@ -46,7 +46,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
     # No arbitrage opportunity found
     return []
-    ##### Your implementation goes here. #####
+    
 
 ################################################################################
 
