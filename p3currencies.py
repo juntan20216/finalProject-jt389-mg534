@@ -1,7 +1,7 @@
 """
-Math 560
-Project 3
-Fall 2021
+Math 260
+Final Project
+Fall 2023
 
 p3currencies.py
 """
