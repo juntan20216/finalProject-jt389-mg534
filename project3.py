@@ -31,10 +31,17 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neighbor.dist = vertex.dist + adjMat[vertex.rank][neighbor.rank]
                     neighbor.prev = vertex
 
+    # Vertex distances after v-1 iterations 
+    distances_first = [vertex.dist for vertex in adjList]
+
     # Check for negative cycles
     for vertex in adjList:
         for neighbor in vertex.neigh:
             if vertex.dist + adjMat[vertex.rank][neighbor.rank] < neighbor.dist - tol:
+                 
+    # Vertex distance after final iteratino 
+    final_dists = [vertex.dist for vertex in adjList]
+
                 # Negative cycle found, trace back to get the cycle
                 cycle = []
                 current = vertex
@@ -43,6 +50,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     current = current.prev
                 cycle.reverse()  # To get the cycle in the correct order
                 return cycle
+                
 
     # No arbitrage opportunity found
     return []
