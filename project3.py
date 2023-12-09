@@ -5,7 +5,7 @@ Fall 2023
 
 Partner 1: Jun Tan
 Partner 2: Max Gorbarty
-Date: 13th December
+Date: 13th December 2023
 """
 
 # Import math and p3tests.
@@ -16,6 +16,12 @@ from p3tests import *
 
 """
 detectArbitrage
+INPUTS
+adjList: Adjacency list for the currencies
+adjMat: Adjacency matrix representing the exchange rates
+tol: Tolerance, check after each update -- ignore if smaller than 1e-15
+OUTPUTS
+
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
    # Initialize distances and predecessors
