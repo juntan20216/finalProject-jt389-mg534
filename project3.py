@@ -37,7 +37,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
             if vertex.dist + adjMat[vertex.rank][neighbor.rank] < neighbor.dist - tol:
                 # Negative cycle found, trace back to get the cycle
                 cycle = []
-                current = neighbor
+                current = vertex
                 while current not in cycle:
                     cycle.append(current)
                     current = current.prev
