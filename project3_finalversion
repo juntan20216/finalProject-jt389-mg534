@@ -54,7 +54,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # Track changes in the vertex.dist value 
     final_distances = [vert.dist for vert in adjList]
 
-    # Detect vertex with changed distance after final iteration - indicating negative cycle 
+    # Detect vertex with changed distance after final iteration - indicating negative 
+    changed_vertex = None 
     for i in range(len(adjList)):
         if distances[i] != final_distances[i]:
             changed_vertex = i 
