@@ -107,7 +107,6 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     
 
 
-##### Your implementation goes here. #####
 
 ################################################################################
 
