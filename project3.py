@@ -22,7 +22,7 @@ INPUTS
 adjList: Adjacency list for the currencies
 adjMat: Adjacency matrix representing the exchange rates
 tol: Tolerance, check after each update -- ignore if smaller than 1e-15
-OUTPUTS
+OUTPUT
 
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
@@ -82,6 +82,11 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
 """
 rates2mat
+Takes rates matrix from Currency class and creates adjacency matrix with correctly weighted edges
+INPUT
+rates: rates matrix from Currency class 
+OUTPUT
+Adjacency matrix with correctly weighted edges
 """
 def rates2mat(rates):
     # Using negative logarithm to transform the rates
