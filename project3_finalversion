@@ -18,7 +18,11 @@ from p3tests import *
 detectArbitrage
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
-    ##### Your implementation goes here. #####
+  # Initialise all vertices
+    for vert in adjList:
+        vert.prev = None
+        vert.dist = math.inf
+    adjList[0].dist = 0
     return []
     ##### Your implementation goes here. #####
 
@@ -28,9 +32,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 rates2mat
 """
 def rates2mat(rates):
-    ##### Your implementation goes here. #####
+# Using negative logarithm to transform the rates
     return [[-math.log(R) for R in row] for row in rates]
-    ##### Your implementation goes here. #####
 
 """
 Main function.
