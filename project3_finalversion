@@ -16,7 +16,7 @@ from p3tests import *
 
 """
 detectArbitrage
-Performs the Bellman-Ford algorithm iteratively to detect negative cost cycles in a set of exchange rates.
+Performs the Bellman-Ford algorithm iteratively to detect negative cost cycles in a set of exchange rates
 INPUTS
 adjList: Adjacency list representing the currencies graph
 adjMat: Adjacency matrix representing the exchange rates
@@ -103,7 +103,9 @@ def rates2mat(rates):
     return [[-math.log(R) for R in row] for row in rates]
 
 """
-Main function.
+Main function
+see if our detectArbitrage function works and passes a set of tests
+which does/does not have arbitrage oppertunities
 """
 if __name__ == "__main__":
     testRates()
