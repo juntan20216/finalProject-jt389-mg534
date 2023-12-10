@@ -37,6 +37,13 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
                     neigh.prev = vert
 
+    # Perform final iteration of Bellman-Ford 
+    for iteration in range(len(adjList) - 1):
+        for vert in adjList:
+            for neigh in vert.neigh:
+                if neigh.dist > vert.dist + adjMat[vert.rank][neigh.rank] + tol:
+                    neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
+                    neigh.prev = vert
     return []
     ##### Your implementation goes here. #####
 
