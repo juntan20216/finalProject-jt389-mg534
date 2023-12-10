@@ -65,13 +65,13 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                 
 
     # Negative cycle found, trace back to get the cycle
-    cycle = []
-    current = vertex
-    while current not in cycle:
-    cycle.append(current)
-    current = current.prev
-    cycle.reverse()  # To get the cycle in the correct order
-    return cycle
+    # cycle = []
+    # current = vertex
+    # while current not in cycle:
+    # cycle.append(current)
+    # current = current.prev
+    # cycle.reverse()  # To get the cycle in the correct order
+    # return cycle
                 
 
     # No arbitrage opportunity found
