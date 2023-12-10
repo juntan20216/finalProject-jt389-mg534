@@ -60,13 +60,27 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
             changed_vertex = i 
             break 
 
+    # Should return empty list if there is no negative cycle 
+    if changed_vertex is None:
+        return []
+
+    # Negative cycle implementation 
     # Follow the chosen vertex's path backwards until cycle is found 
     # Use vertex.prev values
     # Initialize a negative cycle to store the values
     negCycle = []
 
+    # Initialize a set to keep track of visited vertices 
+    visited_vertices = set()
+
     # Start cycle at changed vertex 
     current_vertex = adjList[changed_vertex]
+
+
+
+    # Start infinite loop, do know number of iterations 
+    while True:
+        
 
 
     
