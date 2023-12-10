@@ -6,6 +6,8 @@ Fall 2023
 Partner 1: Jun Tan
 Partner 2: Max Gorbarty
 Date: 13th December 2023
+
+#Attempt No. 1, decided to scrap and restart
 """
 
 # Import math and p3tests.
