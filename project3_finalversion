@@ -70,8 +70,6 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # Initialize a negative cycle to store the values
     negCycle = []
 
-
-
     # Start infinite loop, do know number of iterations 
     # We want to traverse the vertices and detect the cycle
     # Start cycle at changed vertex 
@@ -95,7 +93,11 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
             negCycle.append(current_vertex.rank)
             current_vertex = current_vertex.prev # move current pointer to previous vertex in the path 
         
-        
+    # Trim down the list to only contain the negative cost cycle
+    # Find the starting index of the cycle
+    start = negCycle.index(current.rank)
+
+    
 
 
     ##### Your implementation goes here. #####
