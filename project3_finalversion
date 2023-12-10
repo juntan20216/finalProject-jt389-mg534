@@ -4,7 +4,7 @@ Project 3 Final Version
 Fall 2023
 
 Partner 1: Jun Tan
-Partner 2: Max Gorbarty
+Partner 2: Maximilian Gorbarty
 Date: 10th December 2023
 """
 
@@ -29,8 +29,7 @@ rates2mat
 """
 def rates2mat(rates):
     ##### Your implementation goes here. #####
-    # Currently this only returns a copy of the rates matrix.
-    return [[R for R in row] for row in rates]
+    return [[-math.log(R) for R in row] for row in rates]
     ##### Your implementation goes here. #####
 
 """
