@@ -65,7 +65,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     if changed_vertex is None:
         return []
 
-    # Negative cycle implementation 
+    ## Tracking the negative cycle ##
     # Follow the chosen vertex's path backwards until cycle is found 
     # Use vertex.prev values
     # Initialize a negative cycle to store the values
@@ -100,6 +100,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     start = negCycle.index(current_vertex.rank)
 
     # Slice the list to only contain the negative cost cycle
+    print(negCycle)
     negCycle = negCycle[start:]
 
     # Reverse the list to get it in proper order
