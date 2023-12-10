@@ -16,6 +16,7 @@ from p3tests import *
 
 """
 detectArbitrage
+Performs the Bellman-Ford algorithm iteratively to detect negative cost cycles in a set of exchange rates.
 INPUTS
 adjList: Adjacency list representing the currencies graph
 adjMat: Adjacency matrix representing the exchange rates
