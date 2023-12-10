@@ -58,7 +58,14 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
         if distances[i] != final_distances[i]:
             changed_vertex = i 
             break 
-    
+
+    # Follow the chosen vertex's path backwards until cycle is found 
+    # Use vertex.prev values
+    # Initialize a negative cycle to store the values
+    negCycle = []
+
+    # Start cycle at changed vertex 
+    current_vertex = adjList[changed_vertex]
 
 
     
