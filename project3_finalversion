@@ -76,16 +76,12 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # Start cycle at changed vertex 
     current_vertex = adjList[changed_vertex]
 
-
-
     # Start infinite loop, do know number of iterations 
     while True:
-        
+
+    # testing testing 123 
 
 
-    
-
-    return []
     ##### Your implementation goes here. #####
 
 ################################################################################
