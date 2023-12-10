@@ -44,6 +44,10 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                 if neigh.dist > vert.dist + adjMat[vert.rank][neigh.rank] + tol:
                     neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
                     neigh.prev = vert
+
+    # Track changes in the vertex.dist value 
+    distance = [vert.dist for vert in adjList]
+
     return []
     ##### Your implementation goes here. #####
 
