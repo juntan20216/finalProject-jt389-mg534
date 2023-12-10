@@ -119,3 +119,5 @@ three of which does have arbitrage oppertunities
 """
 if __name__ == "__main__":
     testRates()
+
+#Citations: we were aided by Professor Suzanne Crifo's lecture notes as well as the assignment descriptions
