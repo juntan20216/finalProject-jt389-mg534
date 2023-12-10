@@ -54,7 +54,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # Track verex distances for the final iteration 
     final_distances = [vert.dist for vert in adjList]
 
-    # Detect vertex with changed distancs; indicating engative cost cycle 
+    # Detect vertex with changed distance; indicating negative cost cycle 
     changed_vertex = None 
     for i in range(len(adjList)):
         if distances[i] != final_distances[i]:
@@ -67,16 +67,16 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
     ## Tracing back the negative cycle ##
     # Follow the chosen vertex's path backwards until cycle is found, using .prev values
+
     # Initialize a negative cycle to store the values
     negCycle = []
 
-    #  infinite loop, do know number of iterations 
-    # We want to traverse the vertices and detect the cycle
-    # Start cycle at changed vertex 
+    # Start cycle (current pointer) at changed vertex dist index
     current_vertex = adjList[changed_vertex] 
 
-    # Other attempt -
-    # The cycle might not include the vertex we started - account for that
+    # Do not know number of iterations so perform while True loop to traverse the vertices 
+    # Trace back through predecdssors vertices starting from the changed vertex 
+    # Loop until repeated vertex found, indicating cycle completion
     while True: 
         if current_vertex.rank in negCycle:
             negCycle.append(current_vertex.rank)
@@ -86,7 +86,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
             current_vertex = current_vertex.prev # move current pointer to previous vertex in the path 
         
     # Trim down the list to only contain the negative cost cycle
-    # Find the starting index of the cycle
+    # Locate the starting index of the cycle
     start = negCycle.index(current_vertex.rank)
 
     # Slice the list to only contain the negative cost cycle
@@ -95,9 +95,6 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # Reverse the list to get it in proper order
     negCycle.reverse()
     return negCycle
-    
-
-
 
 ################################################################################
 
