@@ -8,7 +8,7 @@ p3currencies.py
 
 # Import the Vertex class and project3.py functions.
 from p3vertex import *
-from project3 import detectArbitrage, rates2mat
+from project3_finalversion import detectArbitrage, rates2mat
 
 """
 Currencies Class
