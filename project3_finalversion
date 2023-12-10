@@ -51,7 +51,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
                     neigh.prev = vert
 
-    # Track verex distances for the final iteration 
+    # Track vertex distances for the final iteration 
     final_distances = [vert.dist for vert in adjList]
 
     # Detect vertex with changed distance; indicating negative cost cycle 
@@ -75,7 +75,7 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     current_vertex = adjList[changed_vertex] 
 
     # Do not know number of iterations so perform while True loop to traverse the vertices 
-    # Trace back through predecdssors vertices starting from the changed vertex 
+    # Trace back through predecessor vertices starting from the changed vertex 
     # Loop until repeated vertex found, indicating cycle completion
     while True: 
         if current_vertex.rank in negCycle:
@@ -94,6 +94,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
     # Reverse the list to get it in proper order
     negCycle.reverse()
+
+    # Return negative cycle list 
     return negCycle
 
 ################################################################################
