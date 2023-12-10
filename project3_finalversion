@@ -51,39 +51,29 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
                     neigh.prev = vert
 
-    # Track changes in the vertex.dist value 
+    # Track verex distances for the final iteration 
     final_distances = [vert.dist for vert in adjList]
 
-    # Detect vertex with changed distance after final iteration - indicating negative 
+    # Detect vertex with changed distancs; indicating engative cost cycle 
     changed_vertex = None 
     for i in range(len(adjList)):
         if distances[i] != final_distances[i]:
             changed_vertex = i 
             break 
 
-    # Should return empty list if there is no negative cycle 
+    # If no changed vertex dist, return empty list 
     if changed_vertex is None:
         return []
 
-    ## Tracking the negative cycle ##
-    # Follow the chosen vertex's path backwards until cycle is found 
-    # Use vertex.prev values
+    ## Tracing back the negative cycle ##
+    # Follow the chosen vertex's path backwards until cycle is found, using .prev values
     # Initialize a negative cycle to store the values
     negCycle = []
 
-    # Start infinite loop, do know number of iterations 
+    #  infinite loop, do know number of iterations 
     # We want to traverse the vertices and detect the cycle
     # Start cycle at changed vertex 
     current_vertex = adjList[changed_vertex] 
-
-    # Traverse negative cycle 
-    # while current_vertex:
-        # if current_vertex.rank in visited:
-            # current_vertex = visited[current.rank]
-            # break
-        #visited[current.rank] = position
-        #position += 1
-        #current = current.prev
 
     # Other attempt -
     # The cycle might not include the vertex we started - account for that
@@ -100,7 +90,6 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     start = negCycle.index(current_vertex.rank)
 
     # Slice the list to only contain the negative cost cycle
-    print(negCycle)
     negCycle = negCycle[start:]
 
     # Reverse the list to get it in proper order
