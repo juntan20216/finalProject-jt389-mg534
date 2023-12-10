@@ -16,6 +16,11 @@ from p3tests import *
 
 """
 detectArbitrage
+INPUTS
+adjList: Adjacency list representing the currencies graph
+adjMat: Adjacency matrix representing the exchange rates
+tol: tolerance, checks every update step. If update is smaller than 1e-15, ignore.
+OUTPUTS
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
   # Initialise all vertices
@@ -23,6 +28,15 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
         vert.prev = None
         vert.dist = math.inf
     adjList[0].dist = 0
+
+   # Perform |V| - 1 iterations of Bellman-Ford
+    for iteration in range(len(adjList) - 1):
+        for vert in adjList:
+            for neigh in vert.neigh:
+                if neigh.dist > vert.dist + adjMat[vert.rank][neigh.rank] + tol:
+                    neigh.dist = vert.dist + adjMat[vert.rank][neigh.rank]
+                    neigh.prev = vert
+
     return []
     ##### Your implementation goes here. #####
 
