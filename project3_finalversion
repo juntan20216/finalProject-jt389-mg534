@@ -21,6 +21,8 @@ adjList: Adjacency list representing the currencies graph
 adjMat: Adjacency matrix representing the exchange rates
 tol: tolerance, checks every update step. If update is smaller than 1e-15, ignore.
 OUTPUTS
+An empty list if no vertex changed distance, 
+OR the list that contains the negative cost cycle in proper order
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
   # Initialise all vertices
