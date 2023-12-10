@@ -38,8 +38,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neigh.prev = vert
 
     # Record vertex distances after final iteration 
-    distance = [vert.dist for vert in adjList]
-    
+    distances = [vert.dist for vert in adjList]
+
     # Perform final iteration of Bellman-Ford 
     for iteration in range(len(adjList) - 1):
         for vert in adjList:
@@ -49,7 +49,12 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
                     neigh.prev = vert
 
     # Track changes in the vertex.dist value 
-    final_distance = [vert.dist for vert in adjList]
+    final_distances = [vert.dist for vert in adjList]
+
+    for i in range(len(adjList)):
+        if distances[i] != final_distances[i]:
+            changed_vertex = i 
+            break 
 
     return []
     ##### Your implementation goes here. #####
