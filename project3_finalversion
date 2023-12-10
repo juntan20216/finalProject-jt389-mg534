@@ -124,8 +124,8 @@ def rates2mat(rates):
 
 """
 Main function
-see if our detectArbitrage function works and passes a set of tests
-which does/does not have arbitrage oppertunities
+see if our detectArbitrage function works and passes a set of tests,
+three of which does have arbitrage oppertunities
 """
 if __name__ == "__main__":
     testRates()
