@@ -85,16 +85,19 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     position = 0
 
     # Traverse negative cycle 
-    while current_vertex:
-        if current_vertex.rank in visited:
-            current_vertex = visited[current.rank]
-            break
-        visited[current.rank] = position
-        position += 1
-        current = current.prev
+    # while current_vertex:
+        # if current_vertex.rank in visited:
+            # current_vertex = visited[current.rank]
+            # break
+        #visited[current.rank] = position
+        #position += 1
+        #current = current.prev
 
-
-    # testing testing 123 
+    # Other attempt -
+    # The cycle might not include the vertex we started - account for that
+    if current_vertex.rank in negCycle:
+        negCycle.append(current_vertex.rank)
+    
 
 
     ##### Your implementation goes here. #####
