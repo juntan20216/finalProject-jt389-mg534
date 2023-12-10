@@ -26,13 +26,13 @@ An empty list if no vertex changed distance,
 OR the list that contains the negative cost cycle in proper order
 """
 def detectArbitrage(adjList, adjMat, tol=1e-15):
-  # Initialise all vertices
+    # Initialise all vertices
     for vert in adjList:
         vert.prev = None
         vert.dist = math.inf
     adjList[0].dist = 0
 
-   # Perform |V| - 1 iterations of Bellman-Ford
+    # Perform |V| - 1 iterations of Bellman-Ford
     for iteration in range(len(adjList) - 1):
         for vert in adjList:
             for neigh in vert.neigh:
@@ -89,18 +89,25 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     while True: 
         if current_vertex.rank in negCycle:
             negCycle.append(current_vertex.rank)
+            break
         else:
             negCycle.append(current_vertex.rank)
             current_vertex = current_vertex.prev # move current pointer to previous vertex in the path 
         
     # Trim down the list to only contain the negative cost cycle
     # Find the starting index of the cycle
-    start = negCycle.index(current.rank)
+    start = negCycle.index(current_vertex.rank)
 
+    # Slice the list to only contain the negative cost cycle
+    negCycle = negCycle[start:]
+
+    # Reverse the list to get it in proper order
+    negCycle.reverse()
+    return negCycle
     
 
 
-    ##### Your implementation goes here. #####
+##### Your implementation goes here. #####
 
 ################################################################################
 
