@@ -74,15 +74,8 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
     # Start infinite loop, do know number of iterations 
     # We want to traverse the vertices and detect the cycle
-
-    # Initialize dictionary to store traversed vertex values 
-    visited = {}
-
     # Start cycle at changed vertex 
     current_vertex = adjList[changed_vertex] 
-
-    # Maintain vertex counter 
-    position = 0
 
     # Traverse negative cycle 
     # while current_vertex:
@@ -97,6 +90,9 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
     # The cycle might not include the vertex we started - account for that
     if current_vertex.rank in negCycle:
         negCycle.append(current_vertex.rank)
+    else:
+        negCycle.append(current_vertex.rank)
+        current = current.prev
     
 
 
