@@ -88,12 +88,14 @@ def detectArbitrage(adjList, adjMat, tol=1e-15):
 
     # Other attempt -
     # The cycle might not include the vertex we started - account for that
-    if current_vertex.rank in negCycle:
-        negCycle.append(current_vertex.rank)
-    else:
-        negCycle.append(current_vertex.rank)
-        current = current.prev
-    
+    while True: 
+        if current_vertex.rank in negCycle:
+            negCycle.append(current_vertex.rank)
+        else:
+            negCycle.append(current_vertex.rank)
+            current_vertex = current_vertex.prev # move current pointer to previous vertex in the path 
+        
+        
 
 
     ##### Your implementation goes here. #####
